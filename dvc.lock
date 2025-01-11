@@ -1,0 +1,62 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python scripts/train.py
+    deps:
+    - path: data/processed/data.csv
+      hash: md5
+      md5: 5796166d2c13502f48cd4835759a560a
+      size: 47615
+    - path: scripts/train.py
+      hash: md5
+      md5: 5a2b1bbc55c3d732a3afacc53a842234
+      size: 1457
+    params:
+      params.yaml:
+        train:
+          test_size: 0.2
+          cv: 5
+        xgb:
+          n_estimators: 100
+          max_depth: 3
+          learning_rate: 0.1
+          subsample: 0.8
+          colsample_bytree: 0.8
+          random_state: 42
+    outs:
+    - path: models/stacking_model.pkl
+      hash: md5
+      md5: 31a20d5155ca142949a6dc865d4153e6
+      size: 5728766
+  evaluate:
+    cmd: python scripts/evaluate.py
+    deps:
+    - path: models/stacking_model.pkl
+      hash: md5
+      md5: 31a20d5155ca142949a6dc865d4153e6
+      size: 5728766
+    - path: scripts/evaluate.py
+      hash: md5
+      md5: 3bfce4d2480ce15075834a76842735c9
+      size: 1007
+    outs:
+    - path: metrics/metrics.txt
+      hash: md5
+      md5: 14b940eceac753dccd9ae58c2db3ed95
+      size: 101
+  deploy:
+    cmd: python scripts/deploy.py
+    deps:
+    - path: models/stacking_model.pkl
+      hash: md5
+      md5: 31a20d5155ca142949a6dc865d4153e6
+      size: 5728766
+    - path: scripts/deploy.py
+      hash: md5
+      md5: ba81cca6b43a28bde7b316c7bc92c898
+      size: 212
+    outs:
+    - path: deploy/stacking_model.pkl
+      hash: md5
+      md5: 31a20d5155ca142949a6dc865d4153e6
+      size: 5728766

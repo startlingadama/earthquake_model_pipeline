@@ -3,6 +3,7 @@ from sklearn.ensemble import StackingRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 from xgboost import XGBRegressor
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 import joblib
@@ -21,9 +22,9 @@ y = data["target"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=params["train"]["test_size"], random_state=42)
 
 # Définir les modèles de base
-base_models = [
+base_models = [ 
     ('dt', DecisionTreeRegressor(random_state=42)),
-    ('xgb', XGBRegressor(**params["xgb"]))  # Ajouter XGBoost comme modèle de base
+    ('rfr', RandomForestRegressor())  # Ajouter XGBoost comme modèle de base
 ]
 
 # Définir le modèle de stacking

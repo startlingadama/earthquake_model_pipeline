@@ -6,7 +6,7 @@ stages:
       - scripts/train.py
     params:
       - train
-      -xgb
+      - xgb
     outs:
       - models/stacking_model.pkl
 
@@ -16,8 +16,7 @@ stages:
       - models/stacking_model.pkl
       - scripts/evaluate.py
     outs:
-      - metrics/mse.txt
-      - metrics/r2.txt
+      - metrics/metrics.txt
 
   deploy:
     cmd: python scripts/deploy.py
