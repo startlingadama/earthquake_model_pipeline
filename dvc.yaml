@@ -1,0 +1,28 @@
+stages:
+  train:
+    cmd: python scripts/train.py
+    deps:
+      - data/processed/data.csv
+      - scripts/train.py
+    params:
+      - train
+      -xgb
+    outs:
+      - models/stacking_model.pkl
+
+  evaluate:
+    cmd: python scripts/evaluate.py
+    deps:
+      - models/stacking_model.pkl
+      - scripts/evaluate.py
+    outs:
+      - metrics/mse.txt
+      - metrics/r2.txt
+
+  deploy:
+    cmd: python scripts/deploy.py
+    deps:
+      - models/stacking_model.pkl
+      - scripts/deploy.py
+    outs:
+      - deploy/stacking_model.pkl
