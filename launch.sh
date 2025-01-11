@@ -9,3 +9,7 @@ dvc repro
 dvc metrics show
 
 dvc push
+
+git add . 
+git commit -m "versionning"
+git push origin main
