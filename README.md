@@ -148,50 +148,14 @@ RMSE: 3.20
 MAE: 2.50
 R²: 0.92
 ```
-
----
-
-## Améliorations Futures
-
-- **Optimisation des hyperparamètres** : Utiliser des techniques comme la recherche par grille ou la recherche aléatoire pour optimiser les hyperparamètres.
-- **Validation croisée** : Ajouter une validation croisée pour évaluer la robustesse du modèle.
-- **Déploiement cloud** : Déployer le modèle sur un service cloud comme AWS SageMaker ou Google AI Platform.
-
----
+--
 
 ## Auteurs
 
-- Votre Nom (votre.email@example.com)
+- Adama COULIBALY (startlingadama@gmail.com)
 
 ---
 
 ## Licence
 
 Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
-
----
-
-### **Pourquoi cette version est-elle préférable ?**
-
-1. **Clarté et concision** :
-   - Le `README.md` est plus facile à lire et à comprendre sans être encombré de code.
-
-2. **Référence aux fichiers** :
-   - Les scripts (`train.py`, `evaluate.py`, `deploy.py`) et les fichiers de configuration (`params.yaml`, `dvc.yaml`) sont mentionnés, mais leur contenu n'est pas dupliqué dans le `README.md`.
-
-3. **Maintenabilité** :
-   - Si le code change, vous n'avez pas besoin de mettre à jour le `README.md` (sauf si les instructions ou la structure du projet changent).
-
-4. **Orientation utilisateur** :
-   - Le `README.md` se concentre sur ce dont un utilisateur a besoin pour comprendre et exécuter le projet, sans entrer dans les détails techniques du code.
-
----
-
-### **Quand inclure du code dans le README.md ?**
-
-Il peut être utile d'inclure de petits extraits de code dans le `README.md` pour :
-- Montrer un exemple d'utilisation rapide.
-- Expliquer une configuration spécifique.
-- Donner des commandes CLI ou des snippets de code courts.
-
-Cependant, pour des scripts complets ou des fichiers de configuration, il est préférable de les laisser dans leurs fichiers respectifs et de simplement y faire référence dans le `README.md`.
